@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array Methods</title>
+</head>
+<body>
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Array Methods</title>
+    </head>
+    <body>
+        <script>
+            console.log("array methods");
+            console.log("\n");
+            var fruits = ['apple', 'mango', 'orange', 'banana'];
+    
+            var arr = ['aa', 'bb', 'cc', 'dd'];
+    
+            var abc = ['ee', 'ff', 'gg', 'hh'];
+    
+    
+    
+            console.log(fruits.length);
+            console.log(fruits.toString());
+            console.log(fruits.join(','));
+            console.log(fruits.pop());
+            console.log(fruits);
+    
+            console.log(fruits.push('strawberry', 'kiwi'));
+            console.log(fruits);
+    
+            console.log(fruits.shift());
+            console.log(fruits);
+            console.log(fruits.unshift('grapes'));
+            console.log(fruits);
+    //splice  (index position, number of element to be removed, elements to be added)
+            console.log(fruits.splice(1, 2, 'avacado', 'pineapple'));
+            console.log(fruits);
+    
+            console.log(fruits.slice(3));
+            console.log(fruits);
+    
+            console.log(fruits.reverse());
+            console.log(fruits.sort());
+            console.log(fruits.reverse());
+            console.log(fruits);
+    
+            fruits[1] = 'pappaya';
+            console.log(fruits);
+    
+            //delete particular value
+    
+            delete fruits[3];
+            console.log(fruits);
+    
+            console.log(arr.concat(fruits));
+    
+            var newArr = arr.concat(fruits, abc);
+            console.log(newArr);
+            console.log('\n');
+            
+        </script>
+    </body>
+    </html>
+
+
+
+
+
+
+
+
+    
+</body>
+</html>
