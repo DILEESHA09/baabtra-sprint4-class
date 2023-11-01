@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>show or hide password</title>
+    <style>
+        #box{
+width:500px;
+height:500px;
+background-color: brown;
+        }
+    </style>
+</head>
+<body>
+ <div id="box" >
+     <h4>click on check box show or hide password</h4>
+     <label for="">Enter password</label>
+     <input type="password" id="pwd" ><br><br>
+
+     <input type="checkbox" onclick="toggle()">
+     <label for="">show password</label>
+ </div>   
+
+<script>
+  function toggle(){
+    password = document.getElementById("pwd")
+    if(password.type === 'password'){
+        password.type ="text"
+    }
+    else{
+        password.type ="password" 
+    }
+  }
+</script>
+
+</body>
+</html>

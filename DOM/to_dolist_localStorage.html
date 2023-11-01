@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>To-Do List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            padding: 8px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>To-Do List</h1>
+    <input type="text" id="taskInput" placeholder="Enter a new task...">
+    <button onclick="addTask()">Add Task</button>
+    <br><br>
+    <table id="taskTable">
+        <thead>
+            <tr>
+                <th>Task</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Data will be dynamically added here -->
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="2">table footer</td>
+            </tr>
+        </tfoot>
+    </table>
+
+    <script>
+        // Function to add a task to the list
+        function addTask() {
+            const taskInput = document.getElementById("taskInput");
+            const taskTable = document.getElementById("taskTable");
+
+            if (taskInput.value !== "") {
+                const task = taskInput.value;
+
+                // Retrieve tasks from localStorage if available
+                let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+                tasks.push(task);
+
+                // Save updated tasks to localStorage
+                localStorage.setItem("tasks", JSON.stringify(tasks));
+
+                // Clear the input field
+                taskInput.value = "";
+
+                // Update the table
+                updateTable();
+            }
+        }
+
+        // Function to update the table with tasks from localStorage
+        function updateTable() {
+            const taskTable = document.getElementById("taskTable");
+            const tbody = taskTable.getElementsByTagName("tbody")[0];
+            const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+
+            // Clear existing table rows
+            while (tbody.firstChild) {
+                tbody.removeChild(tbody.firstChild);
+            }
+
+            // Add tasks to the table
+            // tasks.forEach(task => {
+            //     const row = document.createElement("tr");
+            //     const taskCell = document.createElement("td");
+            //     const actionCell = document.createElement("td");
+            //     const deleteButton = document.createElement("button");
+
+            //     taskCell.textContent = task;
+            //     deleteButton.textContent = "Delete";
+            //     deleteButton.onclick = function() {
+            //         deleteTask(task);
+            //     };
+
+            //     actionCell.appendChild(deleteButton);
+            //     row.appendChild(taskCell);
+            //     row.appendChild(actionCell);
+            //     tbody.appendChild(row);
+            // });
+
+            // Add tasks to the table using a for loop
+            for (let i = 0; i < tasks.length; i++) {
+                const task = tasks[i];
+                const row = document.createElement("tr");
+                const taskCell = document.createElement("td");
+                const actionCell = document.createElement("td");
+                const deleteButton = document.createElement("button");
+
+                taskCell.textContent = task;
+                deleteButton.textContent = "Delete";
+                deleteButton.onclick = function () {
+                    deleteTask(task);
+                };
+
+                actionCell.appendChild(deleteButton);
+                row.appendChild(taskCell);
+                row.appendChild(actionCell);
+                tbody.appendChild(row);
+            }
+        }
+
+        // Function to delete a task from the list
+        function deleteTask(taskToDelete) {
+        // Retrieve tasks from Local Storage or initialize an empty array if there are no tasks
+        let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+
+        // Use the filter() method to create a new array without the task to delete
+        tasks = tasks.filter((task) => task !== taskToDelete);
+
+        // Save the updated tasks back to Local Storage as a JSON string
+        localStorage.setItem("tasks", JSON.stringify(tasks));
+
+        // Update the table to reflect the changes
+        updateTable();
+}
+
+        // Call updateTable() on page load
+        updateTable();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #table{
+     border-collapse: collapse;
+     width: 70%;
+     text-align: center;
+    }
+    td,th{
+        border: 3px double;
+    }
+    h1{
+        text-align: center;
+    }
+</style>
+<body>
+    <h1>User Data</h1>
+    <br><br>
+    <table id="table">
+        <tr>
+            <th >ID</th>
+            <th >NAME</th>
+            <th >EMAIL</th>
+            <th>CONTACT</th>
+        </tr>
+    </table>
+    <br><br><br>
+    <label for="userid">ID :</label>
+    <input type="text" id="userid">
+    <label for="namevalue">NAME :</label>
+    <input type="text" id="namevalue">
+    <label for="emailvalue">EMAIL :</label>
+    <input type="text" id="emailvalue">
+    <label for="contactvalue">CONTACT :</label>
+    <input type="text" id="contactvalue">
+    <button onclick="addData()">insertRow</button>
+
+
+    <script>
+        i = 1;
+        function addData() {
+        id = document.getElementById('userid').value;
+        name = document.getElementById('namevalue').value;
+        email = document.getElementById('emailvalue').value;
+        contact = document.getElementById('contactvalue').value;
+
+        new_row = table.insertRow();
+        new_row.setAttribute('id','row'+i);
+
+    
+
+        id_no = new_row.insertCell();
+        user_name = new_row.insertCell();
+        user_email = new_row.insertCell();
+        user_contact = new_row.insertCell();
+
+
+        id_no.innerHTML = id;
+        user_name.innerHTML = name;
+        user_email.innerHTML = email;
+        user_contact.innerHTML = contact;
+
+            
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calculator</title>
+</head>
+<body>
+  <label for="">first number</label>
+  <input type="number" id="number1"><br><br>
+    <label for="">select operator</label>
+<select name="" id="operator">
+    <option value="+">+</option>
+    <option value="-">-</option>
+    <option value="*">*</option>
+    <option value="/">/</option>
+</select><br><br>
+<label for="">second number</label>
+<input type="number" id="number2" >
+<button onclick="calculate()" type="submit">calculate</button>
+ <h3 > result is :  <span id="result"></span></h3>
+
+<script>
+function calculate (){
+
+var num1 = Number(document.getElementById('number1').value)
+var num2 = Number(document.getElementById('number2').value)
+var operator =document.getElementById('operator').value
+var result=0;
+if(operator == "+"){
+    result= num1+num2
+}
+ else if(operator == "-"){
+    result= num1-num2
+}
+else if(operator == "*"){
+    result= num1*num2
+}
+else if(operator == "/"){
+    result= num1/num2
+}
+else{
+    "you are not selected any operator"
+}
+document.getElementById('result').innerHTML =result
+return
+}
+
+</script>
+
+
+
+</body>
+</html>

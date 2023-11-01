@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <h1 id="main-heading" >Favourate movie</h1>
+<ul>
+    <li class="list-items" > neo 
+        <span>the matrix</span></li>
+<li class="list-items" > the matrix</li> 
+<li class="list-items" >star wars</li>
+<li class="list-items" >harry porter</li>
+<li class="list-items" >lord of rings</li>
+<li class="list-items" >marvel</li>
+</ul>
+    </div>
+ <script>
+    //styling elements
+const title =document.querySelector('#main-heading')
+title.style.color = "red"
+
+const listitems = document.querySelectorAll(".list-items")
+for(i=0;i<listitems.length;i++){
+listitems[i].style.fontSize= "20px"
+}
+
+//creating elements
+const ul= document.querySelector('ul')
+const li = document.createElement('li')
+//adding elements
+ul.appendChild(li)
+//modifying the text
+const firstListItem = document.querySelector('.list-items')
+console.log(firstListItem.innerText);
+console.log(firstListItem.textContent);
+console.log(firstListItem.innerHTML);
+
+
+
+ </script>   
+</body>
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> var let const keywords</title>
+    <style>
+      #table {
+        border: solid;
+        border-collapse: collapse;
+        padding: 20px;
+        width:80%
+      }  
+      #table th,#table td {
+        border: 1px solid blue;
+      }
+    </style>
+</head>
+<body>
+<table id="table" >
+    <tr><th></th>
+        <th>scope</th>
+        <th>reassignment</th>
+        <th>redeclaration</th>
+        <th>hoisted</th>
+    </tr>
+    <tr>
+<td>var</td>
+<td>functional or global</td>
+<td>possible</td>
+<td>possible</td>
+<td>yes</td>
+    </tr>
+    <tr>
+        <td>let</td>
+        <td>block</td>
+        <td>possible</td>
+        <td> not possible</td>
+        <td>no</td>
+            </tr>
+            <tr>
+                <td>const</td>
+                <td>block</td>
+                <td>not possible</td>
+                <td>not possible</td>
+                <td>no</td>
+                    </tr>
+</table>
+<script>
+// function scopeWithoutKeywords(){
+//     user = "baabtra"
+//     console.log('user inside function: '+ user);
+//     if(true){
+//         age = 18 
+//         console.log('user inside block: '+ user);
+//         console.log('age inside block: '+ age);
+//     }
+//     console.log('age outside block: '+ age);
+// }
+// scopeWithoutKeywords ()
+// console.log('user outtside function: '+ user);
+//         console.log('age inside block: '+ age);
+// console.log('\n');
+
+// var name = "dileesha"
+//         function scopeWithVarKeyword(){
+//      var user = "baabtra"
+//     console.log('user inside function: '+ user);
+//     if(true){
+//        var age = 18 
+//         console.log('user inside block: '+ user);
+//         console.log('age inside block: '+ age);
+//         console.log(name);
+//     }
+//     console.log('age outside block: '+ age);
+//     console.log(name);
+// }
+// scopeWithVarKeyword ()
+// console.log(name);
+// // console.log('user outside function: '+ user);
+//         console.log('age inside block: '+ age);
+
+
+// let name = "dileesha"
+//         function scopeWithLetKeyword(){
+//      let user = "baabtra"
+//     console.log('user inside function: '+ user);
+//     if(true){
+//        let age = 18 
+//         console.log('user inside block: '+ user);
+//         // console.log('age inside block: '+ age);
+//         console.log(name);
+//     }
+//     // console.log('age outside block: '+ age);
+//     console.log(name);
+// }
+// scopeWithLetKeyword ()
+// console.log(name);
+// // console.log('user outside function: '+ user);
+//         console.log('age inside block: '+ age);
+
+ 
+//         function scopeWithConstKeyword(){
+//      const user = "baabtra"
+//     console.log('user inside function: '+ user);
+//     if(true){
+//        const age = 18 
+//        var name ='dileesha'
+//         console.log('user inside block: '+ user);
+//         console.log('age inside block: '+ age);
+//          age = 30
+//         console.log(age);
+//         var name = 'hiba'
+//         console.log(name);
+//     }
+//     user = "cybersquare"
+//     console.log('age outside block: '+ age);
+// }
+// scopeWithConstKeyword ()
+// console.log('user outside function: '+ user);
+//         console.log('age inside block: '+ age);
+
+console.log(a);
+var a = 20
+console.log(a);
+
+console.log(b);
+let b =10
+
+
+
+console.log(c);
+const c =50
+</script>
+</body>
+</html>

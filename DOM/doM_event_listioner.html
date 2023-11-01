@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="b1" type="button">Add Event</button>
+    <div id="container">
+        <p>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Hic neque sint sed vitae, incidunt unde architecto
+            porro saepe accusamus quas vel fugiat. Inventore dolores consequuntur ad expedita adipisci minima
+            voluptatum, commodi dolore? Error impedit atque laboriosam cumque facilis enim et? Ipsum ullam ex quam,
+            eligendi aspernatur architecto cumque suscipit perferendis veritatis magni blanditiis voluptates doloremque
+            id eos obcaecati deleniti veniam voluptatem unde eius! Praesentium cupiditate, sunt corrupti eum facere
+            beatae alias ipsa at quasi a? Saepe ipsum dolores unde nobis modi aperiam aut sint commodi adipisci error
+            expedita repudiandae architecto accusamus nisi ducimus consectetur eius explicabo itaque, fuga voluptates?
+            Accusamus.
+        </p>
+    </div>
+    <button id="b2">Create element</button>
+    <script>
+
+        // addEventListener()
+        btn = document.getElementById("b1")
+        function handleClick(event) {
+            alert("button clicked")
+        }
+        btn.addEventListener("click", handleClick)
+        // create element
+        //     cnt = document.getElementById("container")
+        //     paragraph = document.createElement("p")
+        //     paragraph.innerHTML = " Lorem ipsum dolor sit, amet consectetur "
+        //     cnt.appendChild(paragraph)
+        btn = document.getElementById("b2")
+        cnt = document.getElementById("container")
+        btn.addEventListener("click", function () {
+
+            paragraph = document.createElement("p")
+            paragraph.innerHTML = " Lorem ipsum dolor sit, amet consectetur "
+            cnt.appendChild(paragraph)
+        })
+
+
+        // </script>
+</body>
+</html

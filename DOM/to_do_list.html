@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>to_do_list</title>
+    <style>
+        #task_table {
+            border: collapse;
+            width: 80%;
+        }
+
+        th,
+        td {
+            border: 1px solid black;
+            padding: 5px;
+        }
+
+        th {
+            background-color: antiquewhite;
+        }
+    </style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+    crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <h1>ToDo List</h1>
+    <label for="taskvalue" id="task">Task</label>
+    <input type="text" id="taskvalue">
+    <br><br>
+    <label for="">Description</label>
+    <br>
+    <textarea name="" id="Description-value" cols="30" rows="10"></textarea>
+    <br><br>
+    <button id="btn" onclick="addTask()">Add Task</button>
+
+    <br>
+    <br>
+    <table id="task_table">
+        <tr>
+            <th>sl no</th>
+            <th>Task</th>
+            <th>Description</th>
+            <th>Date</th>
+            <th>status_col</th>
+            <th>complete</th>
+            <th>edit</th>
+            <th>delete</th>
+        </tr>
+        <tr id="row1">
+            <td>1</td>
+            <td>task1</td>
+            <td>des1</td>
+            <td>25/10/23</td>
+            <td></td>
+            <td><button>COMPLETE</button></td>
+           <td><button>edit</button></td>
+           <td><button>DELETE</button></td>
+        </tr>
+    </table>
+<!-- Modal -->
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">
+            &times;
+          </button>
+          <h4 class="modal-title">Modal Header</h4>
+        </div>
+        <div class="modal-body">
+          <label for="">task</label>
+          <input type="text" id="edit_task" />
+          <br />
+          <label for="">description</label>
+          <input type="text" id="edit_desc" />
+          <br />
+          <input type="text" hidden id="trid" />
+        </div>
+        <div></div>
+        <div class="modal-footer">
+          <button type="button" id="editbtn" onclick="edit()" class="btn btn-default" data-dismiss="modal">
+            submit
+          </button>
+          <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+    <script>
+        i = 1;
+        function addTask() {
+            task = document.getElementById('taskvalue').value;
+            description = document.getElementById('Description-value').value;
+            task_table = document.getElementById('task_table');
+            date = new Date()
+
+            console.log(task);
+            console.log(description);
+            console.log(date);
+            console.log(date.toDateString());
+
+            new_row = task_table.insertRow();
+            new_row.setAttribute('id', 'row' + i);
+            sl_no = new_row.insertCell();
+            task_name = new_row.insertCell();
+            des = new_row.insertCell();
+            task_date = new_row.insertCell();
+            status_col = new_row.insertCell();
+            complete_col = new_row.insertCell();
+            edit_col = new_row.insertCell();
+            delete_col = new_row.insertCell();
+
+            sl_no.innerHTML = i++;
+            task_name.innerHTML = task;
+            des.innerHTML = description;
+            task_date.innerHTML = date.toDateString();
+
+            complete_btn = document.createElement('BUTTON')
+            complete_btn.innerHTML = "COMPLETE"
+            complete_btn.style.color = 'red'
+            complete_btn.addEventListener('click', function complete() {
+                status_col.innerHTML = 'completed'
+                // status_col.style.color = 'black'
+                complete_btn.disabled = true
+
+            })
+            // complete_btn.onclick = function complete() {
+            //     status_col.innerHTML = 'completed'
+            //     status_col.style.color = 'black'
+            //     complete_btn.disabled = true
+            // }
+            complete_col.appendChild(complete_btn)
+
+           edit_btn = document.createElement('BUTTON')
+            edit_btn.innerHTML = "edit"
+            edit_btn.style.color = 'green'
+
+            edit_btn.setAttribute('data-toggle','modal')
+            edit_btn.setAttribute('data-target','#myModal')
+
+            edit_btn.addEventListener("click",function handleEdit(event){
+                 edit_id = event.target.parentElement.parentElement.id
+                 edit_list = document.getElementById(edit_id).childNodes
+                 console.log(edit_list);
+                 console.log(edit_list[0].innerHTML);//si no
+                 console.log(edit_list[1].innerHTML);//task
+                 console.log(edit_list[2].innerHTML);//decs
+                 console.log(edit_list[3].innerHTML);
+                 console.log(edit_list[4].innerHTML);
+                 console.log(edit_list[5].innerHTML);
+                 console.log(edit_list[6].innerHTML);
+                 console.log(edit_list[7].innerHTML);
+                 document.getElementById("edit_task").value = edit_list[1].innerHTML
+                 document.getElementById("edit_desc").value = edit_list[2].innerHTML
+            })
+
+            edit_col.appendChild(edit_btn)
+
+           del_btn = document.createElement('BUTTON')
+            del_btn.innerHTML = "delete"
+            del_btn.style.color = 'green'
+    
+del_btn.addEventListener('click',function handleDelete(event){
+     delete_id = event.target.parentElement.parentElement.id
+     delete_row =  document.getElementById(delete_id)
+     delete_row.remove()
+})
+delete_col.appendChild(del_btn)
+
+        }
+function edit(){
+updated_task = document.getElementById("edit_task").value
+updated_description = document.getElementById("edit_desc").value
+submit_list = document.getElementById(edit_id).childNodes
+submit_list[1].innerHTML = updated_task
+submit_list[2].innerHTML = updated_description
+submit_list[3].innerHTML = date.toDateString()
+}
+
+    </script>
+</body>
+
+</html>

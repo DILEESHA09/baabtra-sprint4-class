@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 id="heading">what to buy</h1>
+    <p title="A gentile reminder">Lorem ipsum dolor, sit amet consectetur adipisicing elit</p>
+    <ul id="purchase">
+        <li> a tin of beans</li>
+        <li> cheese</li>
+        <li>milk</li>
+    </ul>
+
+    <ul id="list">
+        <li> a tin of beans</li>
+        <li> cheese</li>
+        <li>milk</li>
+    </ul>
+
+    <p class="p4" id="content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium accusamus recusandae a sunt
+        adipisci! Officia
+        molestias amet placeat! Aspernatur praesentium quod expedita nesciunt beatae consequuntur, obcaecati deleniti
+        sed itaque non.</p>
+    <p id="p3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime accusantium fuga ipsam recusandae
+        perspiciatis,
+        quos est veniam similique, repellat facere a tempora consequatur, sapiente neque possimus ratione animi labore
+        dolores!</p>
+
+    <script>
+        h1 = document.getElementById("heading")
+        list = document.getElementsByTagName("ul")
+        paragraph = document.getElementsByClassName("para")
+        p = document.getElementsByTagName("p")
+        para = document.querySelector("p")
+        allParaghraphs = document.querySelectorAll("p")
+        console.log(h1);
+        console.log(list);
+        console.log(paragraph);
+        console.log(p);
+        console.log(para);
+        console.log(allParaghraphs);
+        headingElement = document.querySelector("h1")
+        if (headingElement !== null) {
+            console.log("nodetype: ", headingElement.nodeType);
+            console.log("nodename: ", headingElement.nodeName);
+            console.log("nodevalue: ", headingElement.nodeValue);
+        }
+
+        paragraphElement = document.querySelector("p")
+        textNode = paragraphElement.firstChild
+        if (textNode !== null) {
+            console.log("nodetype: ", textNode.nodeType);
+            console.log("nodename: ", textNode.nodeName);
+            console.log("nodevalue: ", textNode.nodeValue);
+        }
+
+        listElement = document.getElementById("purchase")
+
+        if (listElement !== null) {
+            console.log("nodetype: ", listElement.nodeType);
+            console.log("nodename: ", listElement.nodeName);
+            console.log("nodevalue: ", listElement.nodeValue);
+        }
+        para2 = document.querySelector(".p2")
+        console.log(para2);
+        if (para2 !==null){
+            idAttribute=para2.getAttributeNode('id')
+            if(idAttribute !== null){
+            console.log("attribute nodetype: ", idAttribute.nodeType);
+            console.log("attribute  nodename: ", idAttribute.nodeName);
+            console.log("attribute  nodevalue: ", idAttribute.nodeValue);
+            }
+else{
+    console.log("paaraghraph does not have an id attribute");
+}
+        }
+else{
+    console.log(" paragraph element with class name p2 not found");
+}
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <label for="">total students</label> 
+  <select name="" id="studentList">
+   <option value="dileesha">dileesha</option>
+   <option value="khasna">khasna</option>
+   <option value="hiba">hiba</option>
+   <option value="shaharban">shaharban</option>
+   <option value="ramees">ramees</option>
+   <option value="sahil">sahil</option>
+   <option value="mirsab">mirsab</option>
+   <option value="abishekh">abishekh</option>
+   <option value="zamil">zamil</option>
+   <option value="ajas">ajas</option>
+</select>
+    <button onclick="deleteStudent()"> Check Student</button>
+    <h4>Old student list : <span id="old"> </span></h4>
+    <h4>New student list : <span id="new"> </span></h4>
+    <script>
+        function deleteStudent() {
+            studentList = ['dileesha', 'khasna', 'hiba', 'shaharban', 'ramees', 'sahil', 'mirsab', 'abishekh', 'zamil', 'ajas']
+
+            document.getElementById('old').innerHTML = studentList
+            selectStudent = document.getElementById('studentList').value
+             checkStudent = prompt("Enter student name : ")
+
+            for (i = 0; i <= studentList.length - 1; i++) {
+                if (checkStudent == selectStudent) {
+                    console.log("selected student is present");
+                    studentList.splice(i,1)
+                    i--
+                    document.getElementById('new').innerHTML = studentList.join(" , ")
+                    // console.log("123");
+                }
+                
+            }
+
+
+        }
+
+
+    </script>
+
+
+
+</body>
+
+</html>

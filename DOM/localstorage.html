@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>local Storage</title>
+</head>
+
+<body>
+    <h1>Student data</h1>
+    <form action="" id="studentForm">
+        <label for="name">Name</label>
+        <input type="text" id="name">
+        <label for="number">Roll No</label>
+        <input type="number" id="number">
+        <label for="department">Department</label>
+        <input type="text" id="department">
+        <button type="submit">Add student</button>
+        <br>
+        <table id="studentdata" border="2px" width="80%">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Roll No</th>
+                    <th>Department</th>
+                </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+    </form>
+    <script>
+        const studentForm = document.getElementById("studentForm")
+        const studentTable = document.getElementById("studentdata").getElementsByTagName("tbody")[0]
+        studentForm.addEventListener('submit', function (event) {
+            event.preventDefault()
+
+            const sname = document.getElementById("name").value
+            const srollNo = document.getElementById("number").value
+            const sdepartment = document.getElementById("department").value
+
+
+            const student = { sname, srollNo, sdepartment }
+            let students = JSON.parse(localStorage.getItem("students")) || []
+            students.push(student)
+            localStorage.setItem("students", JSON.stringify(students))
+
+
+            const row = studentTable.insertRow()
+            const nameCol = row.insertCell()
+            const rollNoCol = row.insertCell()
+            const departmentCol = row.insertCell()
+
+            nameCol.innerHTML = sname
+            rollNoCol.innerHTML = srollNo
+            departmentCol.innerHTML = sdepartment
+
+            studentForm.reset()
+
+        })
+
+        const students = JSON.parse(localStorage.getItem("students")) || []
+
+        const numberOfStudents = students.length
+        for (let i = 0; i < numberOfStudents; i++) {
+            const student = students[i]
+
+            const row = studentTable.insertRow()
+            const nameCol = row.insertCell()
+            const rollNoCol = row.insertCell()
+            const departmentCol = row.insertCell()
+
+            nameCol.innerHTML = student.sname
+            rollNoCol.innerHTML = student.srollNo
+            departmentCol.innerHTML = student.sdepartment
+
+        }
+
+    </script>
+
+
+</body>
+
+</html>

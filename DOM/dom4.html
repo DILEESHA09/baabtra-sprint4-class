@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <label for="">Select Fruits</label>
+    <select name="" id="fruits">
+        <option value="apple">apple</option>
+        <option value="strawberry">strawberry</option>
+        <option value="berry">berry</option>
+        <option value="orange">orange</option>
+        <option value="grape">grape</option>
+        <option value="jack fruit">jack fruit</option>
+        <option value="banana">banana</option>
+        <option value="water mellon">water mellon</option>
+    </select>
+    <button onclick="deleteFruit()">delete fruit</button>
+    <h4>old array : <span id="old"></span></h4>
+    <h4>new array : <span id="new"></span></h4>
+
+    <script>
+        function deleteFruit() {
+            fruits = ['apple', 'berry', 'orange', 'banana']
+            document.getElementById('old').innerHTML = fruits;
+            selectFruit = document.getElementById('fruits').value
+            // console.log(fruits);
+            // console.log(fruits.length);
+            for (i = 0; i <= fruits.length - 1; i++) {
+                // console.log("enter for");
+                if (selectFruit == fruits[i]) {
+                    // console.log('enter if');
+                    fruits.splice(i, 1)
+                    i--;
+                    document.getElementById('new').innerHTML = fruits.join(" , ")
+
+                    return
+                }
+            }
+            alert('fruit is not present')
+        }
+
+
+
+    </script>
+
+</body>
+
+</html>

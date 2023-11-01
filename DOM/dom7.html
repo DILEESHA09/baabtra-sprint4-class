@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>passwordCheck</title>
+</head>
+<body>
+  
+    <label for=""> password</label>
+    <input type="text" id="pwd" ><br><br>
+    <label for="">check password</label>
+    <input type="checkbox" id="checkbox"  onclick="check()">
+    <input type="text" name="" id="output" readonly>
+    <!-- readonly for only reading purpose -->
+
+<script>
+function check(){
+var result ;
+var string=document.getElementById('pwd').value
+
+const hasLowerCase =/[a-z]/.test(string)
+const hasUpperCase =/[A-Z]/.test(string)
+const hasDigit =/\d/.test(string)
+const hasSpecialChar =/[!@#$%&*?]/.test(string)
+const isLengthValid =string.length >=8
+const isFirstChar =/^[A-Z a-z]/.test(string)
+
+if  (hasLowerCase && hasUpperCase && hasDigit && hasSpecialChar && isLengthValid && isFirstChar  ){
+ result = "strong password"
+}
+else if ( hasLowerCase && hasUpperCase && isLengthValid  && !hasDigit){
+    result = "week password"
+}
+else {
+    result ="very week password"
+}
+document.getElementById('output').value = result
+document.getElementById('pwd').value = " "
+setTimeout(function(){
+    document.getElementById('output').value = ''
+    checkbox.checked = false
+    //here checkbox is id
+} , 3000)
+
+}
+
+
+</script>
+
+
+
+</body>
+</html>

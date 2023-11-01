@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <button onclick="deleteStudent()">delete student</button>
+    <h4>old array : <span id="old"></span></h4>
+    <h4>new array : <span id="new"></span></h4>
+
+    <script>
+        function deleteStudent() {
+            studentList  = ['dileesha', 'khasna', 'hiba', 'shaharban', 'ramees', 'sahil', 'mirsab', 'abishekh', 'zamil', 'ajas']
+            document.getElementById('old').innerHTML =  studentList;
+            enteredStudent = prompt("enter student name")
+            // console.log(student);
+            // console.log(student.length);
+            for (i = 0; i <= studentList.length - 1; i++) {
+                // console.log("enter for");
+                if (enteredStudent ==  studentList[i]) {
+                    // console.log('enter if');
+                    studentList.splice(i, 1)
+                    i--;
+                    document.getElementById('new').innerHTML =  studentList.join(" , ")
+
+                    return
+                }
+            }
+            alert('student is not present')
+        }
+
+
+
+    </script>
+
+</body>
+
+</html>

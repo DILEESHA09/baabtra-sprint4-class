@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+            height: 500px;
+            width: 500px;
+            background-color: brown;
+            border: solid 1px color(srgb red green blue);
+        }
+    </style>
+</head>
+
+<body>
+
+    <label for=""> choose color</label>
+    <select name="" id="select-color" onchange="changeBgColor()">
+        <option value="" disabled>Select a color</option>
+        <option value="red">red</option>
+        <option value="blue">blue</option>
+        <option value="green">green</option>
+        <option value="yellow">yellow</option>
+        <option value="orange">orange</option>
+    </select>
+
+    <div id="box">
+    </div>
+
+    <script>
+        function changeBgColor() {
+            div = document.getElementById('box')
+            color = document.getElementById('select-color').value;
+
+            if (color == 'red') {
+                div.style.backgroundColor = 'red'
+            }
+            else if (color == 'blue') {
+                div.style.backgroundColor = 'blue'
+            }
+            else if (color == 'green') {
+                div.style.backgroundColor = 'green'
+            }
+            else if (color == 'yellow') {
+                div.style.backgroundColor = 'yellow'
+            }
+            else if (color == 'orange') {
+                div.style.backgroundColor = 'orange'
+            }
+            else {
+                div.style.backgroundColor = 'brown'
+            }
+        }
+    </script>
+
+</body>
+
+</html>

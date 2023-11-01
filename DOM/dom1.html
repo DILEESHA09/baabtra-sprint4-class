@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="heading" >Lorem ipsum dolor sit amet.</h1>
+    <button onclick="changeContent()">  change content </button>
+
+
+<span id="contact_details" ></span>
+<button onclick="addContact()">  add contact</button>
+<br>
+<b>Lorem ipsum dolor sit amet.</b>
+<i>Lorem ipsum dolor sit amet consectetur.
+    <h1>Lorem ipsum dolor sit amet consectetur adipisicing.</h1>
+</i>
+<script>
+    function changeContent(){
+        h1=document.getElementById("heading")
+        h1.innerHTML="dileesha"
+        // h1.style.color="red"
+        // h1.style.fontSize="38px"
+        // h1.style.backgroundColor="black;" 
+        h1.style.cssText="color:yellow;background-color: blueviolet;"
+    }
+
+
+    function addContact(){
+        contact= document.getElementById("contact_details")
+        contact.innerHTML = "<b> eiwa </b> <br> 123456 <br> khasna <br>"
+    }
+</script>
+
+</body>
+</html>
